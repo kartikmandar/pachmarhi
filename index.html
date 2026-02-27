@@ -1537,6 +1537,36 @@
     box-shadow: 0 0 0 2px #3a4060 !important;
   }
 
+  /* Dark mode: green text overrides (--forest #1a3a2a is invisible on dark bg) */
+  body.dark .day-title,
+  body.dark .overview-card .value,
+  body.dark .event-title,
+  body.dark .callout-title,
+  body.dark .cost-table h2,
+  body.dark .total-row,
+  body.dark .info-card h3,
+  body.dark .poll-header h2,
+  body.dark .poll-card h3,
+  body.dark .poll-stat .big,
+  body.dark .weather-temps,
+  body.dark .leaflet-popup-content h3,
+  body.dark .health-note h3,
+  body.dark .sos-card h3 {
+    color: #8fbfa0;
+  }
+  body.dark .section-title {
+    color: #8fbfa0 !important;
+  }
+  body.dark .info-card li::before {
+    color: #8fbfa0;
+  }
+  body.dark .time-label {
+    color: var(--amber-light);
+  }
+  body.dark .spot-label .label-name {
+    color: #8fbfa0;
+  }
+
   /* ── PRINT STYLES ── */
   @media print {
     /* Hide elements that need network or are meaningless in PDF */

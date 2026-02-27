@@ -824,6 +824,52 @@
     .info-card li { font-size: 0.75rem; }
   }
 
+  /* ── SAVE AS PDF BUTTON ── */
+  .save-pdf-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: var(--forest);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  .save-pdf-btn:hover {
+    background: var(--forest-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+
+  .save-pdf-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 600px) {
+    .save-pdf-btn {
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      top: 12px;
+      right: 12px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .save-pdf-btn {
+      padding: 6px 10px;
+      font-size: 0.72rem;
+    }
+  }
+
   /* ── POLL RESULTS ── */
   .poll-section {
     background: var(--sand);
@@ -1162,9 +1208,108 @@
     margin: 4px 0;
     font-size: 0.85rem;
   }
+  /* ── PRINT STYLES ── */
+  @media print {
+    /* Hide elements that need network or are meaningless in PDF */
+    .save-pdf-btn,
+    .map-wrapper,
+    .poll-section,
+    #tripTracker,
+    .quick-links {
+      display: none !important;
+    }
+
+    /* Preserve background colors and graphics */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* Page setup */
+    @page {
+      size: A4;
+      margin: 18mm 15mm;
+    }
+
+    /* Hero: flatten to solid color, hide starfield */
+    .hero {
+      background: var(--forest) !important;
+      padding: 40px 30px 36px !important;
+    }
+
+    .hero::before {
+      display: none !important;
+    }
+
+    /* Page break control — avoid splitting key blocks */
+    .timeline-item,
+    .callout,
+    .info-card,
+    .health-note,
+    table {
+      break-inside: avoid;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      break-after: avoid;
+    }
+
+    /* Callouts: preserve dark / colored backgrounds */
+    .callout.night-box {
+      background: var(--night) !important;
+      color: rgba(255,255,255,0.85) !important;
+    }
+
+    .callout.night-box .callout-title {
+      color: var(--star) !important;
+    }
+
+    .callout.warning {
+      border-left-color: var(--rust) !important;
+      background: #fef8f6 !important;
+    }
+
+    .callout.amber-box {
+      border-left-color: var(--amber) !important;
+      background: #fdf9f0 !important;
+    }
+
+    /* Suppress browser URL-after-link behavior */
+    a[href]::after {
+      content: none !important;
+    }
+
+    /* Typography: prevent orphans and widows */
+    p {
+      orphans: 3;
+      widows: 3;
+    }
+
+    /* Flatten fixed/sticky positioning for print */
+    body {
+      overflow: visible !important;
+    }
+
+    /* Overview cards break control */
+    .overview-card {
+      break-inside: avoid;
+    }
+
+    /* Day sections should start cleanly */
+    .day-section {
+      break-before: auto;
+    }
+
+    /* Ensure event cards don't split */
+    .event-card {
+      break-inside: avoid;
+    }
+  }
+
 </style>
 </head>
 <body>
+<button id="savePdfBtn" class="save-pdf-btn" onclick="window.print()" title="Save as PDF for offline use">📄 Save as PDF</button>
 
 <!-- ═══════ HERO ═══════ -->
 <div class="hero">

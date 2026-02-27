@@ -38,6 +38,39 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* ── QUICK LINKS ── */
+  .quick-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .quick-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background 0.2s, border-color 0.2s;
+    backdrop-filter: blur(4px);
+  }
+
+  .quick-links a:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.4);
+  }
+
+  .quick-links .link-icon {
+    font-size: 1.1rem;
+  }
+
   /* ── HERO ── */
   .hero {
     background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 40%, var(--moss) 100%);
@@ -520,6 +553,8 @@
     .hero h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); margin-bottom: 12px; }
     .hero-sub { font-size: 0.88rem; line-height: 1.6; }
     .hero-meta { gap: 10px 16px; margin-top: 24px; }
+    .quick-links { gap: 8px; margin-top: 18px; }
+    .quick-links a { padding: 8px 14px; font-size: 0.76rem; }
     .hero-meta-item { font-size: 0.72rem; gap: 5px; }
     .hero-meta-item .icon { font-size: 0.95rem; }
 
@@ -983,6 +1018,11 @@
       <div class="hero-meta-item"><span class="icon">🚐</span> Force Traveller + driver</div>
       <div class="hero-meta-item"><span class="icon">🛣</span> ~200 km drive</div>
       <div class="hero-meta-item"><span class="icon">🌡</span> 22–35°C days · 10–15°C nights</div>
+    </div>
+    <div class="quick-links">
+      <a href="https://drive.google.com/drive/folders/1sBWzoBbf-BMvGkgTm23Oc2baKd7aGdEs?usp=sharing" target="_blank"><span class="link-icon">📸</span> Upload Photos</a>
+      <a href="https://open.spotify.com/playlist/6F0GV8KBIeKcr0nwkh76VJ?si=WFOLl5xOSki_q5B8Ztotfg&pt=8bea50cdcf899ebef8c2d21279d07bad&pi=kL--TqMCQVGck" target="_blank"><span class="link-icon">🎵</span> Trip Playlist</a>
+      <a href="https://www.splitwise.com/join/BwcRznsb87k+fn0r2?v=e" target="_blank"><span class="link-icon">💰</span> Join Splitwise</a>
     </div>
   </div>
 </div>

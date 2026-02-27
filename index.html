@@ -1208,6 +1208,335 @@
     margin: 4px 0;
     font-size: 0.85rem;
   }
+
+  /* ── SOS / EMERGENCY ── */
+  .sos-card {
+    background: #fef2ef;
+    border: 2px solid var(--rust);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin: 24px 0;
+  }
+  .sos-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--rust);
+    margin-bottom: 14px;
+  }
+  .sos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+  .sos-item {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    line-height: 1.5;
+  }
+  .sos-item strong {
+    color: var(--slate);
+    display: block;
+    font-size: 0.82rem;
+  }
+  .sos-item a {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--rust);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .sos-item a:hover { text-decoration: underline; }
+  .sos-note {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--slate-light);
+    font-style: italic;
+    border-top: 1px solid #f0d0c5;
+    padding-top: 12px;
+  }
+  @media (max-width: 600px) {
+    .sos-grid { grid-template-columns: 1fr; }
+    .sos-card { padding: 16px 16px; }
+  }
+
+  /* ── WHATSAPP SHARE BUTTON ── */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    z-index: 9999;
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .whatsapp-btn:hover {
+    background: #20bd5a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .whatsapp-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  @media (max-width: 600px) {
+    .whatsapp-btn { padding: 8px 14px; font-size: 0.78rem; bottom: 12px; left: 12px; }
+  }
+  @media (max-width: 380px) {
+    .whatsapp-btn { padding: 6px 10px; font-size: 0.72rem; bottom: 10px; left: 10px; }
+  }
+
+  /* ── POLL CTA ── */
+  .poll-cta {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .poll-cta-btn {
+    display: inline-block;
+    background: var(--amber);
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .poll-cta-btn:hover {
+    background: var(--amber-light);
+    transform: translateY(-1px);
+  }
+
+  /* ── WEATHER WIDGET ── */
+  .weather-section {
+    background: var(--sand);
+    border-bottom: 1px solid var(--sand-dark);
+    padding: 28px 24px;
+  }
+  .weather-title {
+    max-width: 820px;
+    margin: 0 auto 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--slate-light);
+  }
+  .weather-grid {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .weather-card {
+    background: white;
+    border: 1px solid var(--sand-dark);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .weather-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--slate-light);
+    margin-bottom: 8px;
+  }
+  .weather-icon { font-size: 2.2rem; margin-bottom: 4px; }
+  .weather-condition {
+    font-size: 0.85rem;
+    color: var(--slate);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .weather-temps {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--forest);
+  }
+  .weather-temps .low {
+    font-size: 0.95rem;
+    color: var(--slate-light);
+  }
+  .weather-rain {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--sky);
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .weather-section { padding: 20px 14px; }
+    .weather-grid { gap: 10px; }
+    .weather-card { padding: 14px 14px; }
+  }
+  @media (max-width: 380px) {
+    .weather-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── DARK MODE TOGGLE ── */
+  .dark-mode-btn {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 9999;
+    background: var(--night);
+    color: var(--star);
+    border: none;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .dark-mode-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .dark-mode-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  @media (max-width: 600px) {
+    .dark-mode-btn { padding: 8px 12px; font-size: 0.9rem; top: 12px; left: 12px; }
+  }
+  @media (max-width: 380px) {
+    .dark-mode-btn { padding: 6px 10px; font-size: 0.82rem; left: 10px; }
+  }
+
+  /* ── COLLAPSIBLE DAY SECTIONS ── */
+  .day-toggle {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .day-chevron {
+    float: right;
+    font-size: 1.2rem;
+    color: var(--slate-light);
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  .day-section.collapsed .day-chevron {
+    transform: rotate(-90deg);
+  }
+  .day-content {
+    max-height: 5000px;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  .day-section.collapsed .day-content {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  /* ── TIMELINE PROGRESS SYNC ── */
+  .timeline-item.is-current {
+    background: rgba(212, 145, 59, 0.1);
+    border: 1px solid var(--amber);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-left: -14px;
+    padding-left: 28px;
+  }
+  .timeline-item.is-current::before {
+    background: var(--amber) !important;
+    box-shadow: 0 0 0 2px var(--amber), 0 0 12px rgba(212, 145, 59, 0.6) !important;
+    animation: pulse-current 2s ease-in-out infinite;
+  }
+  @keyframes pulse-current {
+    0%, 100% { box-shadow: 0 0 0 2px var(--amber), 0 0 6px rgba(212, 145, 59, 0.4); }
+    50% { box-shadow: 0 0 0 2px var(--amber), 0 0 14px rgba(212, 145, 59, 0.7); }
+  }
+  .timeline-item.is-past {
+    opacity: 0.5;
+  }
+  .timeline-item.is-past::before {
+    background: var(--sand-dark) !important;
+    box-shadow: 0 0 0 2px var(--sand-dark) !important;
+  }
+
+  /* ── DARK MODE OVERRIDES ── */
+  body.dark {
+    --cream: #1a1e2e;
+    --sand: #222740;
+    --sand-dark: #2d3354;
+    --slate: #e0ddd5;
+    --slate-light: #a8a5a0;
+  }
+  body.dark .hero {
+    background: linear-gradient(135deg, #0d1520 0%, #152030 40%, #1a3040 100%);
+  }
+  body.dark .overview-card,
+  body.dark .info-card,
+  body.dark .poll-card,
+  body.dark .weather-card {
+    background: #262b42;
+    border-color: #3a4060;
+  }
+  body.dark .callout { background: #262b42; }
+  body.dark .callout.warning { background: #2a2025; }
+  body.dark .callout.amber-box { background: #2a2520; }
+  body.dark .health-note {
+    background: #2a2025;
+    border-color: #503530;
+  }
+  body.dark .sos-card {
+    background: #2a2025;
+    border-color: #704540;
+  }
+  body.dark .map-wrapper { border-color: #3a4060; }
+  body.dark .map-wrapper .map-title-bar {
+    background: #2d3354;
+    border-color: #3a4060;
+  }
+  body.dark .poll-section,
+  body.dark .weather-section { background: #222740; }
+  body.dark .footer { background: #0d1520; }
+  body.dark .timeline::before {
+    background: linear-gradient(to bottom, #4a6070, #3a4060);
+  }
+  body.dark .timeline-item::before {
+    border-color: #1a1e2e;
+    box-shadow: 0 0 0 2px #4a6070;
+  }
+  body.dark table { background: #262b42; border-color: #3a4060; }
+  body.dark thead { background: #1a3a2a; }
+  body.dark td { border-color: #3a4060; }
+  body.dark .total-row { background: #2d3354; }
+  body.dark .poll-bar-track { background: #2d3354; }
+  body.dark .poll-stat { background: #262b42; border-color: #3a4060; }
+  body.dark .day-section { border-color: #3a4060; }
+  body.dark .overview-strip { border-color: #3a4060; }
+  body.dark .poll-section { border-color: #3a4060; }
+  body.dark .cost-section { background: #222740; }
+  body.dark .dark-mode-btn {
+    background: var(--star);
+    color: var(--night);
+  }
+  body.dark .timeline-item.is-current {
+    background: rgba(212, 145, 59, 0.08);
+    border-color: var(--amber);
+  }
+  body.dark .timeline-item.is-past::before {
+    background: #3a4060 !important;
+    box-shadow: 0 0 0 2px #3a4060 !important;
+  }
+
   /* ── PRINT STYLES ── */
   @media print {
     /* Hide elements that need network or are meaningless in PDF */
@@ -1304,11 +1633,72 @@
     .event-card {
       break-inside: avoid;
     }
+
+    /* ── New features print rules ── */
+    .whatsapp-btn,
+    .dark-mode-btn,
+    .weather-section,
+    .poll-cta {
+      display: none !important;
+    }
+
+    .sos-card {
+      break-inside: avoid;
+    }
+
+    .day-content {
+      max-height: none !important;
+      opacity: 1 !important;
+      overflow: visible !important;
+    }
+
+    .day-chevron {
+      display: none !important;
+    }
+
+    /* Dark mode print reset */
+    body.dark {
+      --cream: #faf8f4;
+      --sand: #f5f0e8;
+      --sand-dark: #e8e0d0;
+      --slate: #3a3a3a;
+      --slate-light: #6a6a6a;
+      --forest: #1a3a2a;
+      --forest-light: #2d5a3f;
+      --moss: #4a7c59;
+      --amber: #d4913b;
+      --rust: #c45a3c;
+      --sky: #5b93b0;
+      --night: #1a1e2e;
+      --star: #ffd475;
+    }
+
+    body.dark .overview-card,
+    body.dark .info-card,
+    body.dark .poll-card,
+    body.dark .callout,
+    body.dark table,
+    body.dark .poll-stat {
+      background: white !important;
+      border-color: #e8e0d0 !important;
+    }
+
+    body.dark .callout.warning { background: #fef8f6 !important; }
+    body.dark .callout.amber-box { background: #fdf9f0 !important; }
+    body.dark .callout.night-box { background: var(--night) !important; color: rgba(255,255,255,0.85) !important; }
+    body.dark .health-note { background: #fef8f6 !important; border-color: #f0d0c5 !important; }
+    body.dark .sos-card { background: #fef2ef !important; border-color: var(--rust) !important; }
+    body.dark .hero { background: var(--forest) !important; }
+    body.dark .footer { background: var(--forest) !important; }
+    body.dark .total-row { background: var(--sand) !important; }
+    body.dark thead { background: var(--forest) !important; }
   }
 
 </style>
 </head>
 <body>
+<a class="whatsapp-btn" href="https://api.whatsapp.com/send?text=Pachmarhi%20Trip%20Itinerary%20%E2%80%94%20IISER%20Bhopal%20Squad%20%F0%9F%8F%95%EF%B8%8F%20Check%20it%20out!" target="_blank" title="Share on WhatsApp">💬 Share</a>
+<button class="dark-mode-btn" onclick="toggleDarkMode()" title="Toggle dark mode">🌙</button>
 <button id="savePdfBtn" class="save-pdf-btn" onclick="window.print()" title="Save as PDF for offline use">📄 Save as PDF</button>
 
 <!-- ═══════ HERO ═══════ -->
@@ -1358,16 +1748,28 @@
   </div>
 </div>
 
+<!-- ═══════ WEATHER WIDGET ═══════ -->
+<div class="weather-section" id="weatherSection">
+  <div class="weather-title">3-Day Forecast — Pachmarhi</div>
+  <div class="weather-grid" id="weatherGrid">
+    <div class="weather-card"><div class="weather-icon">⏳</div><div class="weather-condition">Loading forecast…</div></div>
+  </div>
+</div>
+
 <!-- ═══════ CONTENT ═══════ -->
 <div class="container">
 
   <!-- ── FRIDAY ── -->
-  <div class="day-section">
-    <div class="day-header">
-      <span class="day-badge">Day 0</span>
-      <span class="day-date">Friday, March 13</span>
+  <div class="day-section" id="day0">
+    <div class="day-toggle" onclick="toggleDay(this)" aria-expanded="true">
+      <div class="day-header">
+        <span class="day-badge">Day 0</span>
+        <span class="day-date">Friday, March 13</span>
+        <span class="day-chevron">▾</span>
+      </div>
+      <div class="day-title">The Drive In</div>
     </div>
-    <div class="day-title">The Drive In</div>
+    <div class="day-content">
     <p class="day-subtitle">Leave early, arrive in daylight, and settle in for the weekend.</p>
 
     <div class="map-wrapper">
@@ -1376,37 +1778,37 @@
     </div>
 
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="0">
         <div class="time-label">12:30 PM</div>
         <div class="event-title">Assemble at IISER Bhopal (Bhauri campus) <a href="https://www.google.com/maps/search/IISER+Bhopal+Bhauri" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Final headcount, load luggage. Make sure everyone has: cash (₹5,000), offline Google Maps downloaded, original photo IDs, and trekking shoes packed.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="1">
         <div class="time-label">1:00 PM</div>
         <div class="event-title">Depart IISER Bhopal in the Force Traveller <a href="https://www.google.com/maps/dir/IISER+Bhopal+Bhauri/Pachmarhi+Madhya+Pradesh" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Route</a></div>
         <div class="event-desc">Take NH 45 south through Hoshangabad/Narmadapuram to Pipariya. First 150 km is smooth four-lane highway. The Force Traveller takes closer to 5 hours for the full drive. Mobile signal drops after Pipariya.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="2">
         <div class="time-label">~3:30 PM</div>
         <div class="event-title">Quick chai/snack break near Pipariya <a href="https://www.google.com/maps/search/Pipariya+Railway+Station+Madhya+Pradesh" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Last reliable stop before the ghat road. Top up snacks, use restrooms. Pipariya has ATMs if anyone forgot cash.</div>
       </div>
 
-      <div class="timeline-item highlight">
+      <div class="timeline-item highlight" data-event-idx="3">
         <div class="time-label">~4:00–5:30 PM</div>
         <div class="event-title">50 km ghat road through Satpura forest <a href="https://www.google.com/maps/dir/Pipariya+Madhya+Pradesh/Pachmarhi+Madhya+Pradesh" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Route</a></div>
         <div class="event-desc">The scenic highlight of the drive — sharp hairpin bends through dense sal and teak forest. Leaving at 1 PM means you'll hit this stretch in daylight — a huge advantage over evening arrivals. Keep speed under 40 km/h on curves, watch for wildlife crossings. The driver will know this road.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="4">
         <div class="time-label">~5:30–6:00 PM</div>
         <div class="event-title">Arrive Pachmarhi — Check in at Chunmun Cottage <a href="https://www.google.com/maps/search/Chunmun+Cottage+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Civil Area location, ~500m from the main market. Settle into the dormitory rooms. The cottage has open grounds, parking, and campfire area. The Force Traveller parks here for the weekend — your driver can arrange local logistics.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="5">
         <div class="time-label">6:30–8:00 PM</div>
         <div class="event-title">Explore main market + dinner <a href="https://www.google.com/maps/search/Pachmarhi+main+market+bazaar" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Walk to Pachmarhi bazaar. Grab dinner at <strong>Jalaram Bhojnalaya</strong> (<a href="https://www.google.com/maps/search/Jalaram+Bhojnalaya+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a> unlimited thali, ₹100–150) or <strong>Maheshwari Restaurant</strong> (<a href="https://www.google.com/maps/search/Maheshwari+Restaurant+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a> near the bus stand). Browse shops selling local honey, bamboo handicrafts, and banana silk fabrics. Most shops close by 9:30 PM. Pick up snacks and water bottles for tomorrow's treks.</div>
@@ -1423,15 +1825,20 @@
       <div class="callout-title">Before you leave Bhopal</div>
       <p><strong>Download offline Google Maps</strong> for the Pachmarhi region — signal is unreliable in the forest zone. Jio and Airtel are patchy; BSNL works best. Carry <strong>₹5,000 cash per person</strong> — many vendors, adventure operators, and restaurants are cash-only. Pack <strong>trekking shoes</strong> (non-negotiable for Duchess Falls and snorkeling trek), towels, dry clothes, sunscreen, and a flashlight for the caves.</p>
     </div>
+    </div><!-- /day-content -->
   </div>
 
   <!-- ── SATURDAY ── -->
-  <div class="day-section">
-    <div class="day-header">
-      <span class="day-badge amber">Day 1</span>
-      <span class="day-date">Saturday, March 14</span>
+  <div class="day-section" id="day1">
+    <div class="day-toggle" onclick="toggleDay(this)" aria-expanded="true">
+      <div class="day-header">
+        <span class="day-badge amber">Day 1</span>
+        <span class="day-date">Saturday, March 14</span>
+        <span class="day-chevron">▾</span>
+      </div>
+      <div class="day-title">Duchess Falls, Caves & the Highest Sunset</div>
     </div>
-    <div class="day-title">Duchess Falls, Caves & the Highest Sunset</div>
+    <div class="day-content">
     <p class="day-subtitle">Morning: the trek everyone voted for. Afternoon: cave temples by Force Traveller. Evening: sunset from 1,352m — the highest point in Madhya Pradesh.</p>
 
     <div class="map-wrapper">
@@ -1440,61 +1847,61 @@
     </div>
 
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="6">
         <div class="time-label">7:00 AM</div>
         <div class="event-title">Breakfast at Maheshwari Restaurant <a href="https://www.google.com/maps/search/Maheshwari+Restaurant+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Walk to the bus stand area. The classic MP breakfast: poha-jalebi combo and sabudana khichdi. ₹80–100/person. Quick, filling, and you'll need the energy.</div>
       </div>
 
-      <div class="timeline-item highlight">
+      <div class="timeline-item highlight" data-event-idx="7">
         <div class="time-label">8:00 AM — be here sharp</div>
         <div class="event-title">Bison Lodge Museum — Permits + Gypsy booking <a href="https://www.google.com/maps/search/Bison+Lodge+Museum+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc"><strong>This is the single most important logistical moment of the trip.</strong> Buy composite forest permits (₹660/person) and book <strong>2 gypsies</strong> for the waterfall route. Arriving at 8 AM (when it opens) saves you 1–2 hours vs the tourist crowd that shows up at 10. One person handles the queue while others check out the taxidermy museum.</div>
       </div>
 
-      <div class="timeline-item star">
+      <div class="timeline-item star" data-event-idx="8">
         <div class="time-label">9:00 AM – 12:30 PM</div>
         <div class="event-title">Duchess Falls Trek — the hidden 100m cascade <a href="https://www.google.com/maps/search/Duchess+Falls+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">The moment 100% of the group voted for. Your gypsy drops you at the trailhead, then it's a <strong>4–5 km trek over boulders and rocky forest terrain</strong> to reach a 100m waterfall splitting into three separate cascades. Guides will try to discourage you — don't listen. Swim in the natural pool at the base, and look for the "doctor fish" pools where tiny fish nibble dead skin off your feet. A nimbu paani stall appears midway. Budget ~2.5–3 hours including trek time + time at the falls. <strong>Sturdy trekking shoes are mandatory.</strong></div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="9">
         <div class="time-label">12:30 – 1:00 PM</div>
         <div class="event-title">Bee Falls (Jamuna Prapat) — optional if time permits <a href="https://www.google.com/maps/search/Bee+Falls+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">On the gypsy route back from Duchess Falls area. The iconic 35m waterfall — swim under the cascade if energy permits. The 400+ step descent is tough after the Duchess trek, so skip the descent if legs are done. At minimum, catch the view from the top. Carry towels and dry clothes.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="10">
         <div class="time-label">1:00 – 2:15 PM</div>
         <div class="event-title">Lunch in town <a href="https://www.google.com/maps/search/Pachmarhi+bus+stand+market" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc"><strong>Jalaram Bhojnalaya</strong> (<a href="https://www.google.com/maps/search/Jalaram+Bhojnalaya+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>) for unlimited Gujarati/Rajasthani thali (₹100–150 — the group's top-voted budget pick). Or <strong>Bombay Hotel</strong> (<a href="https://www.google.com/maps/search/Bombay+Hotel+Restaurant+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>) for non-veg lovers: mutton biryani and Mughlai dishes from a three-generation recipe (₹100–250). Rest your legs.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="11">
         <div class="time-label">2:30 – 3:30 PM</div>
         <div class="event-title">Jata Shankar Caves + Harper's Cave <a href="https://www.google.com/maps/search/Jata+Shankar+Caves+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Take the Force Traveller (no gypsy needed). Natural stalagmite Shivalingams inside a cool, atmospheric ravine — genuinely unique geology. Takes ~1 hour. Don't skip <strong>Harper's Cave</strong> nearby — a 10,000-year-old rock painting of a figure playing a harp, just 15 minutes extra.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="12">
         <div class="time-label">3:45 – 5:00 PM</div>
         <div class="event-title">Bada Mahadev + Gupt Mahadev <a href="https://www.google.com/maps/search/Bada+Mahadev+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Drive to Bada Mahadev: a towering 60-foot cave shrine with water continuously dripping from the rock ceiling. Then Gupt Mahadev: a narrow rock fissure you squeeze through sideways, single-file, in near-darkness. <strong>Carry a flashlight.</strong> These are the most atmospheric spots in Pachmarhi — genuinely thrilling. Both accessible by Force Traveller, no gypsy needed.</div>
       </div>
 
-      <div class="timeline-item star">
+      <div class="timeline-item star" data-event-idx="13">
         <div class="time-label">5:15 – 7:00 PM</div>
         <div class="event-title">Dhoopgarh Sunset — MP's highest point at 1,352m <a href="https://www.google.com/maps/search/Dhoopgarh+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">The single most spectacular experience in Pachmarhi. A 360° sunset over the Satpura and Vindhya ranges. Arrive by 5:15 PM to claim a good spot. Stay 15–20 minutes after the sun dips below the horizon — the post-sunset light paints the valleys in orange and purple. <strong>Monkeys are aggressive here</strong> — keep all bags zipped, no visible food, don't make eye contact or show teeth.</div>
       </div>
 
-      <div class="timeline-item highlight">
+      <div class="timeline-item highlight" data-event-idx="14">
         <div class="time-label">7:30 – 9:00 PM</div>
         <div class="event-title">Dinner at Beta Bawarchi <a href="https://www.google.com/maps/search/Beta+Bawarchi+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">The group's top vote at 75%. Pachmarhi's most popular restaurant — huge open-air garden seating with <strong>live unplugged music starting ~7:30 PM</strong>. Order the Paneer Angara, Paneer Lababdar, and Dal Dhaba. They offer free pickup/drop from your cottage if needed. ~₹250–500/person for a full meal. Non-veg reportedly available if you ask.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="15">
         <div class="time-label">9:00 – 10:00 PM</div>
         <div class="event-title">Main market stroll <a href="https://www.google.com/maps/search/Pachmarhi+main+market+bazaar" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Voted by 62.5% of the group. Walk through the bazaar for street food (Maggi, chaat, dosa at ₹50/item from chaupati stalls), browse souvenir shops. Cash-only. Most shops close by 9:30–10 PM.</div>
@@ -1506,16 +1913,20 @@
       <p>Pachmarhi has virtually zero light pollution — one of the darkest skies in central India. <strong>"Star Gazing Pachmarhi"</strong> runs guided telescope sessions showing Mars, Venus, Jupiter, Saturn, the Andromeda Galaxy (2.5 million light-years out), the Milky Way band, Orion, and Sirius — all with explanations. ₹200/person, sessions after sunset (~7:30–9 PM), consistently 5-star rated on TripAdvisor. Call ahead: <strong>9479652798 / 7828885655</strong>. Instagram: @stargazingpachmarhi. If you can squeeze this in after dinner, it's an unforgettable way to end the night — and Pachmarhi's skies genuinely deliver for deep-sky observation.</p>
     </div>
 
-
+    </div><!-- /day-content -->
   </div>
 
   <!-- ── SUNDAY ── -->
-  <div class="day-section">
-    <div class="day-header">
-      <span class="day-badge sky">Day 2</span>
-      <span class="day-date">Sunday, March 15</span>
+  <div class="day-section" id="day2">
+    <div class="day-toggle" onclick="toggleDay(this)" aria-expanded="true">
+      <div class="day-header">
+        <span class="day-badge sky">Day 2</span>
+        <span class="day-date">Sunday, March 15</span>
+        <span class="day-chevron">▾</span>
+      </div>
+      <div class="day-title">Snorkeling Trek, Reechgarh & the Drive Home</div>
     </div>
-    <div class="day-title">Snorkeling Trek, Reechgarh & the Drive Home</div>
+    <div class="day-content">
     <p class="day-subtitle">Morning: the activity 87.5% of you called a "deal breaker." Afternoon: the natural canyon, final viewpoints, and the scenic return drive through the Satpura ghats.</p>
 
     <div class="map-wrapper">
@@ -1524,31 +1935,31 @@
     </div>
 
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="16">
         <div class="time-label">7:00 AM</div>
         <div class="event-title">Early breakfast + pack up <a href="https://www.google.com/maps/search/Chunmun+Cottage+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Grab poha-jalebi from a market stall or eat at the cottage. Check out of Chunmun Cottage (they offer a post-checkout freshen-up facility — confirm in advance). Pack all bags into the Force Traveller. Carry packed snacks and water for the day — no eateries near any trek.</div>
       </div>
 
-      <div class="timeline-item star">
+      <div class="timeline-item star" data-event-idx="17">
         <div class="time-label">8:00 AM – 12:30 PM</div>
         <div class="event-title">Snorkeling Trek through Satpura Forest <a href="https://www.google.com/maps/search/The+Gypsy+Adventures+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">The group's most-voted activity at 87.5%. Run exclusively by <strong>The Gypsy Adventures (TGA)</strong>, this combines a jungle trek with freshwater snorkeling in a hidden rock pool deep inside the Satpura Biosphere Reserve. They pick you up from the cottage in a rugged gypsy vehicle, drive to the trailhead, then a ~50-minute downhill trek through dense forest with a local naturalist guide sharing stories about rare flora and tribal culture. The trail follows a stream to a hidden rock pool — snorkeling gear provided, you'll see colourful fish in crystal-clear freshwater. Packed lunch served in eco-friendly steel tiffins by the pool. Trek back uphill (the harder part). ~4–5 hours total including transport. <strong>Moderate fitness required.</strong></div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="18">
         <div class="time-label">12:30 – 1:30 PM</div>
         <div class="event-title">Quick lunch in town <a href="https://www.google.com/maps/search/Pachmarhi+bus+stand+market" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc"><strong>Dine Inn Food Court</strong> (<a href="https://www.google.com/maps/search/Dine+Inn+Hotel+Utkarsh+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>) at Hotel Utkarsh — multi-cuisine, fast service, rated 4.7 on TripAdvisor. Or <strong>Rahul's Pizza</strong> (<a href="https://www.google.com/maps/search/Rahul+Pizza+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>) near the market for surprisingly good street-style pizza at roadside prices. You need to eat fast — afternoon is tight before departure.</div>
       </div>
 
-      <div class="timeline-item highlight">
+      <div class="timeline-item highlight" data-event-idx="19">
         <div class="time-label">1:45 – 2:45 PM</div>
         <div class="event-title">Reechgarh — the natural canyon <a href="https://www.google.com/maps/search/Reechgarh+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Voted by 100% of the group. A massive 400m narrow canyon passage between towering sandstone walls — noticeably cooler inside (travelers call it "natural AC"). Walk through the passage, check out the water-erosion patterns from centuries of submergence — 2,000-year-old geology you can touch. There's an echo point nearby. ~1 hour.</div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="20">
         <div class="time-label">3:00 – 3:40 PM</div>
         <div class="event-title">Priyadarshini Point — panoramic farewell view <a href="https://www.google.com/maps/search/Priyadarshini+Point+Pachmarhi" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">The exact spot where Captain Forsyth first discovered Pachmarhi in 1857. Eagle's-eye panoramic view of the entire Pachmarhi valley, Handi Khoh ravine, and the Satpura Range stretching to the horizon. Quick, easy access by Force Traveller, minimal walking. Perfect last stop for group photos. ~30 minutes.</div>
@@ -1556,7 +1967,7 @@
 
 
 
-      <div class="timeline-item highlight">
+      <div class="timeline-item highlight" data-event-idx="21">
         <div class="time-label">4:30 PM</div>
         <div class="event-title">Depart Pachmarhi for Bhopal <a href="https://www.google.com/maps/dir/Pachmarhi+Madhya+Pradesh/IISER+Bhopal+Bhauri" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Route</a></div>
         <div class="event-desc">The return drive takes ~5 hours in the Force Traveller. The 50 km ghat road descent through Satpura forest is beautiful in daylight — enjoy the views you missed on the way up. Once past Pipariya, it's smooth four-lane highway back to Bhopal.</div>
@@ -1564,7 +1975,7 @@
 
 
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-event-idx="23">
         <div class="time-label">~9:30 – 10:00 PM</div>
         <div class="event-title">Arrive back at IISER Bhopal <a href="https://www.google.com/maps/search/IISER+Bhopal+Bhauri" target="_blank" style="font-size:0.8em;text-decoration:none;">📍 Map</a></div>
         <div class="event-desc">Home. Tired, sunburnt, probably still finding sand in your shoes from the Duchess Falls trek. Worth every step.</div>
@@ -1580,6 +1991,7 @@
       <strong>Rated:</strong> 4.7 stars on Justdial (689+ reviews)<br>
       Price: ₹1,500/person. They also bundle with river deck camping and stargazing.</p>
     </div>
+    </div><!-- /day-content -->
   </div>
 
 </div><!-- /container -->
@@ -1588,8 +2000,11 @@
 
 <!-- ═══════ PACKING + CONTACTS ═══════ -->
 <div class="container">
-  <div class="day-section">
-    <div class="day-title">What to Pack & Key Contacts</div>
+  <div class="day-section" id="dayPacking">
+    <div class="day-toggle" onclick="toggleDay(this)" aria-expanded="true">
+      <div class="day-title">What to Pack & Key Contacts <span class="day-chevron">▾</span></div>
+    </div>
+    <div class="day-content">
 
     <div class="info-grid">
       <div class="info-card">
@@ -1630,6 +2045,57 @@
       <strong>Member with knee/shoulder issue:</strong> The Duchess Falls trek (4–5 km over boulders) and the snorkeling trek (50-min uphill return) are both moderately demanding. Consider using a trekking pole if available. The afternoon cave visits on Saturday and Reechgarh on Sunday are far less strenuous. Bee Falls' 400-step descent/ascent can be skipped entirely.<br><br>
       <strong>Everyone:</strong> Monkeys are aggressive at Dhoopgarh, Chauragarh, and viewpoints — keep everything in zipped bags. No eating in the open. Slippery rocks near waterfalls have caused injuries; move carefully. Drink plenty of water — March heat at 22–35°C dehydrates faster than you expect on treks.</p>
     </div>
+
+    <div class="sos-card">
+      <h3>🚨 Emergency / SOS Numbers</h3>
+      <div class="sos-grid">
+        <div class="sos-item">
+          <strong>Ambulance (EMRI)</strong>
+          <a href="tel:108">108</a>
+        </div>
+        <div class="sos-item">
+          <strong>Cantonment Hospital (4.3★)</strong>
+          <a href="tel:07578292027">07578-292027</a> <a href="https://www.google.com/maps/search/Cantonment+Hospital+Pachmarhi+FCFM%2B5M2" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>
+        </div>
+        <div class="sos-item">
+          <strong>CHC Panchmarhi (Govt.)</strong>
+          <a href="tel:09098873638">090988 73638</a> <a href="https://www.google.com/maps/search/Community+Health+Centre+Babu+Line+Pachmarhi+near+Police+Station" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>
+        </div>
+        <div class="sos-item">
+          <strong>Police — Pachmarhi</strong>
+          <a href="tel:07578286660">07578-286660</a> <a href="https://www.google.com/maps/search/Police+Station+Pachmarhi+Cantonment" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>
+        </div>
+        <div class="sos-item">
+          <strong>District Hospital Narmadapuram</strong>
+          <a href="tel:07574252464">07574-252464</a> <a href="https://www.google.com/maps/search/District+Hospital+Narmadapuram+Hoshangabad+Saket+Colony" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>
+        </div>
+        <div class="sos-item">
+          <strong>Satpura Tiger Reserve (Forest)</strong>
+          <a href="tel:07574254394">07574-254394</a> <a href="https://www.google.com/maps/search/Satpura+Tiger+Reserve+Office+Pachmarhi+Cantonment" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a>
+        </div>
+        <div class="sos-item">
+          <strong>Fire</strong>
+          <a href="tel:101">101</a>
+        </div>
+        <div class="sos-item">
+          <strong>MP Tourism Helpline</strong>
+          <a href="tel:18002337777">1800-233-7777</a>
+        </div>
+        <div class="sos-item">
+          <strong>Tourist Helpline (24x7)</strong>
+          <a href="tel:1800111363">1800-11-1363</a>
+        </div>
+      </div>
+      <p class="sos-note" style="font-style:normal; margin-top:16px; border-top:none; padding-top:0;">
+        <strong style="color:var(--slate); display:block; margin-bottom:6px;">Local Medical — Pachmarhi Town</strong>
+        <span>🩺 <strong>Dr Syed Azhar Ali</strong> — Nehru Road · <a href="tel:09425692644" style="color:var(--rust);">094256 92644</a> · till 9:30 PM <a href="https://www.google.com/maps/search/Dr+Syed+Azhar+Ali+Nehru+Road+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a></span><br>
+        <span>💊 <strong>Laxmi Medical</strong> — Jawahar Chowk · <a href="tel:09425310427" style="color:var(--rust);">094253 10427</a> · till 10 PM <a href="https://www.google.com/maps/search/Laxmi+Medical+Jawahar+Chowk+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a></span><br>
+        <span>💊 <strong>Sharma Medical Store</strong> — Patel Rd · <a href="tel:09407810291" style="color:var(--rust);">094078 10291</a> · till 11:30 PM <a href="https://www.google.com/maps/search/Sharma+Medical+Store+Patel+Road+Pachmarhi" target="_blank" style="font-size:0.85em;text-decoration:none;">📍</a></span>
+      </p>
+      <p class="sos-note">For major emergencies beyond Pachmarhi: <a href="https://www.google.com/maps/search/Civil+Hospital+Pipariya+Narmadapuram" target="_blank" style="color:var(--rust);text-decoration:underline;">Pipariya CHC</a> (~47 km) for stabilization, <a href="https://www.google.com/maps/search/District+Hospital+Narmadapuram+Hoshangabad" target="_blank" style="color:var(--rust);text-decoration:underline;">District Hospital Narmadapuram</a> (~110 km) for full care.</p>
+    </div>
+
+    </div><!-- /day-content -->
   </div>
 </div>
 
@@ -1637,6 +2103,9 @@
 <div class="poll-section" id="pollSection">
   <h2 class="section-title" style="color: var(--forest);">📊 Live Poll Results</h2>
   <p class="section-subtitle" style="text-align:center; margin-bottom: 28px; color: var(--slate-light);">Anonymised responses from the group — updates automatically as more people fill the form.</p>
+  <div class="poll-cta">
+    <a class="poll-cta-btn" href="https://forms.gle/hnj3pexiRBQo8Kyf8" target="_blank">📝 Fill the Trip Poll</a>
+  </div>
   <div id="pollResults">
     <p style="text-align:center; padding: 40px 0; color: var(--slate-light);">Loading poll data…</p>
   </div>
@@ -1825,16 +2294,63 @@
     else renderPost();
   }
 
-  tick();
+  // ── Timeline Progress Sync ──
+  function syncTimeline(now) {
+    var items = document.querySelectorAll('[data-event-idx]');
+    var state = getState(now);
+
+    if (state !== 'active') {
+      items.forEach(function(el) {
+        el.classList.remove('is-current', 'is-past');
+      });
+      return;
+    }
+
+    var info = findCurrentAndNext(now);
+    var currentIdx = -1;
+    if (info.current) {
+      currentIdx = TRIP_EVENTS.indexOf(info.current);
+    } else if (info.next) {
+      currentIdx = TRIP_EVENTS.indexOf(info.next) - 1;
+    }
+
+    items.forEach(function(el) {
+      var idx = parseInt(el.getAttribute('data-event-idx'), 10);
+      el.classList.remove('is-current', 'is-past');
+      if (idx < currentIdx) {
+        el.classList.add('is-past');
+      } else if (idx === currentIdx) {
+        el.classList.add('is-current');
+        // Auto-expand collapsed section
+        var section = el.closest('.day-section');
+        if (section && section.classList.contains('collapsed')) {
+          section.classList.remove('collapsed');
+          var toggle = section.querySelector('.day-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'true');
+        }
+      }
+    });
+  }
+
+  function tickWithSync() {
+    var now = new Date();
+    var state = getState(now);
+    if (state === 'pre') renderPre(now);
+    else if (state === 'active') renderActive(now);
+    else renderPost();
+    syncTimeline(now);
+  }
+
+  tickWithSync();
 
   var state = getState(new Date());
   var timerId = setInterval(function() {
     var newState = getState(new Date());
-    tick();
+    tickWithSync();
     if (newState !== state) {
       clearInterval(timerId);
       state = newState;
-      timerId = setInterval(tick, newState === 'pre' ? 1000 : 60000);
+      timerId = setInterval(tickWithSync, newState === 'pre' ? 1000 : 60000);
     }
   }, state === 'pre' ? 1000 : 60000);
 })();
@@ -2242,6 +2758,108 @@
       console.error('Poll fetch error:', err);
       document.getElementById('pollResults').innerHTML = '<p style="text-align:center;color:var(--rust);">Could not load poll results. Try refreshing.</p>';
     });
+})();
+</script>
+
+<!-- ═══════ COLLAPSIBLE SECTIONS SCRIPT ═══════ -->
+<script>
+function toggleDay(el) {
+  var section = el.closest('.day-section');
+  if (!section) return;
+  var isCollapsed = section.classList.toggle('collapsed');
+  el.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+}
+</script>
+
+<!-- ═══════ DARK MODE SCRIPT ═══════ -->
+<script>
+function toggleDarkMode() {
+  var isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('pachmarhi-dark-mode', isDark ? '1' : '0');
+  var btn = document.querySelector('.dark-mode-btn');
+  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+}
+(function() {
+  if (localStorage.getItem('pachmarhi-dark-mode') === '1') {
+    document.body.classList.add('dark');
+    var btn = document.querySelector('.dark-mode-btn');
+    if (btn) btn.textContent = '☀️';
+  }
+})();
+</script>
+
+<!-- ═══════ WEATHER WIDGET SCRIPT ═══════ -->
+<script>
+(function() {
+  var WMO_MAP = {
+    0: ['☀️', 'Clear sky'],
+    1: ['🌤', 'Mostly clear'], 2: ['⛅', 'Partly cloudy'], 3: ['☁️', 'Overcast'],
+    45: ['🌫', 'Foggy'], 48: ['🌫', 'Depositing rime fog'],
+    51: ['🌦', 'Light drizzle'], 53: ['🌦', 'Moderate drizzle'], 55: ['🌧', 'Dense drizzle'],
+    56: ['🌧', 'Light freezing drizzle'], 57: ['🌧', 'Dense freezing drizzle'],
+    61: ['🌧', 'Slight rain'], 63: ['🌧', 'Moderate rain'], 65: ['🌧', 'Heavy rain'],
+    66: ['🌧', 'Light freezing rain'], 67: ['🌧', 'Heavy freezing rain'],
+    71: ['🌨', 'Slight snow'], 73: ['🌨', 'Moderate snow'], 75: ['❄️', 'Heavy snow'],
+    77: ['🌨', 'Snow grains'],
+    80: ['🌦', 'Slight rain showers'], 81: ['🌧', 'Moderate rain showers'], 82: ['⛈', 'Violent rain showers'],
+    85: ['🌨', 'Slight snow showers'], 86: ['🌨', 'Heavy snow showers'],
+    95: ['⛈', 'Thunderstorm'], 96: ['⛈', 'Thunderstorm with slight hail'], 99: ['⛈', 'Thunderstorm with heavy hail']
+  };
+
+  function getWmo(code) {
+    return WMO_MAP[code] || ['🌡', 'Unknown'];
+  }
+
+  function formatDate(dateStr) {
+    var d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+
+  function renderCards(days) {
+    var grid = document.getElementById('weatherGrid');
+    if (!grid) return;
+    var html = '';
+    days.forEach(function(day) {
+      html += '<div class="weather-card">';
+      html += '<div class="weather-date">' + day.date + '</div>';
+      html += '<div class="weather-icon">' + day.icon + '</div>';
+      html += '<div class="weather-condition">' + day.condition + '</div>';
+      html += '<div class="weather-temps">' + Math.round(day.high) + '° <span class="low">/ ' + Math.round(day.low) + '°</span></div>';
+      html += '<div class="weather-rain">💧 ' + day.rain + '% chance of rain</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+  }
+
+  function fallback() {
+    renderCards([
+      { date: 'Fri, Mar 13', icon: '☀️', condition: 'Mostly sunny', high: 35, low: 15, rain: 10 },
+      { date: 'Sat, Mar 14', icon: '🌤', condition: 'Partly cloudy', high: 34, low: 16, rain: 15 },
+      { date: 'Sun, Mar 15', icon: '☀️', condition: 'Clear sky', high: 35, low: 15, rain: 5 }
+    ]);
+    var title = document.querySelector('.weather-title');
+    if (title) title.textContent = '3-DAY FORECAST — PACHMARHI (APPROXIMATE)';
+  }
+
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=22.4679&longitude=78.4321&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code&forecast_days=3&timezone=Asia%2FKolkata')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.daily || !data.daily.time) { fallback(); return; }
+      var days = [];
+      for (var i = 0; i < data.daily.time.length && i < 3; i++) {
+        var wmo = getWmo(data.daily.weather_code[i]);
+        days.push({
+          date: formatDate(data.daily.time[i]),
+          icon: wmo[0],
+          condition: wmo[1],
+          high: data.daily.temperature_2m_max[i],
+          low: data.daily.temperature_2m_min[i],
+          rain: data.daily.precipitation_probability_max[i] || 0
+        });
+      }
+      renderCards(days);
+    })
+    .catch(function() { fallback(); });
 })();
 </script>
 

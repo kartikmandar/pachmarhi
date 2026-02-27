@@ -630,6 +630,194 @@
     .info-card li { font-size: 0.75rem; }
   }
 
+  /* ── POLL RESULTS ── */
+  .poll-section {
+    background: var(--sand);
+    padding: 48px 24px;
+    border-top: 1px solid var(--sand-dark);
+  }
+
+  .poll-container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .poll-header {
+    margin-bottom: 32px;
+  }
+
+  .poll-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    color: var(--forest);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .poll-header p {
+    font-size: 0.88rem;
+    color: var(--slate-light);
+  }
+
+  .poll-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .poll-meta-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--forest);
+    color: white;
+  }
+
+  .poll-meta-badge.live { background: var(--moss); }
+
+  .poll-card {
+    background: white;
+    border: 1px solid var(--sand-dark);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+  }
+
+  .poll-card h3 {
+    font-size: 0.92rem;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .poll-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .poll-bar-row:last-child { margin-bottom: 0; }
+
+  .poll-bar-label {
+    font-size: 0.78rem;
+    color: var(--slate);
+    width: 180px;
+    flex-shrink: 0;
+    text-align: left;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .poll-bar-track {
+    flex: 1;
+    height: 24px;
+    background: var(--sand);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .poll-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: var(--moss);
+    transition: width 0.6s ease;
+    min-width: 2px;
+  }
+
+  .poll-bar-fill.top { background: var(--amber); }
+  .poll-bar-fill.second { background: var(--sky); }
+  .poll-bar-fill.highlight { background: var(--forest); }
+
+  .poll-bar-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--slate-light);
+    min-width: 52px;
+    flex-shrink: 0;
+    text-align: left;
+  }
+
+  .poll-stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .poll-stat {
+    background: white;
+    border: 1px solid var(--sand-dark);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .poll-stat .big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--forest);
+    line-height: 1.1;
+  }
+
+  .poll-stat .small {
+    font-size: 0.75rem;
+    color: var(--slate-light);
+    margin-top: 4px;
+  }
+
+  .poll-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .poll-loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--slate-light);
+    font-size: 0.9rem;
+  }
+
+  .poll-error {
+    text-align: center;
+    padding: 24px;
+    color: var(--rust);
+    font-size: 0.85rem;
+    background: #fef8f6;
+    border-radius: 10px;
+    border: 1px solid #f0d0c5;
+  }
+
+  @media (max-width: 900px) {
+    .poll-grid { grid-template-columns: 1fr; }
+    .poll-bar-label { width: 140px; font-size: 0.74rem; }
+  }
+
+  @media (max-width: 600px) {
+    .poll-section { padding: 32px 14px; }
+    .poll-card { padding: 16px 16px; }
+    .poll-card h3 { font-size: 0.85rem; margin-bottom: 12px; }
+    .poll-bar-row { gap: 6px; }
+    .poll-bar-label { width: 110px; font-size: 0.7rem; }
+    .poll-bar-track { height: 20px; }
+    .poll-bar-value { font-size: 0.65rem; min-width: 44px; }
+    .poll-grid { grid-template-columns: 1fr; }
+    .poll-stat .big { font-size: 1.6rem; }
+    .poll-stat-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  }
+
+  @media (max-width: 380px) {
+    .poll-bar-label { width: 80px; font-size: 0.65rem; }
+    .poll-bar-value { font-size: 0.6rem; min-width: 38px; }
+  }
+
   /* ── TOUCH IMPROVEMENTS ── */
   @media (hover: none) and (pointer: coarse) {
     .leaflet-popup-content-wrapper { border-radius: 10px; }
@@ -1100,6 +1288,15 @@
   </div>
 </div>
 
+<!-- ═══════ POLL RESULTS ═══════ -->
+<div class="poll-section" id="pollSection">
+  <h2 class="section-title" style="color: var(--forest);">📊 Live Poll Results</h2>
+  <p class="section-subtitle" style="text-align:center; margin-bottom: 28px; color: var(--slate-light);">Anonymised responses from the group — updates automatically as more people fill the form.</p>
+  <div id="pollResults">
+    <p style="text-align:center; padding: 40px 0; color: var(--slate-light);">Loading poll data…</p>
+  </div>
+</div>
+
 <!-- ═══════ FOOTER ═══════ -->
 <div class="footer">
   <p>Pachmarhi Trip Itinerary — IISER Bhopal Squad — March 13–15, 2026</p>
@@ -1369,6 +1566,145 @@
      loc.priyadarshiniPoint, loc.pachmarhi, loc.pipariya, loc.iiserBhopal],
     '#5b93b0'
   );
+})();
+</script>
+
+<!-- ═══════ POLL RESULTS SCRIPT ═══════ -->
+<script>
+(function() {
+  var CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF6_irYj5Rezz1Qh3dBh-1v5QwFdHwogFL6pLxE5jqk0yZgxKe-bhQ1FLkYSOPzlQdnhQpC8dvsO5d/pub?output=csv';
+
+  function parseCSV(text) {
+    var rows = [];
+    var row = [];
+    var field = '';
+    var inQuotes = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (inQuotes) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (c === '"') { inQuotes = false; }
+        else { field += c; }
+      } else {
+        if (c === '"') { inQuotes = true; }
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n' || (c === '\r' && text[i + 1] === '\n')) {
+          row.push(field); field = '';
+          if (c === '\r') i++;
+          rows.push(row); row = [];
+        } else { field += c; }
+      }
+    }
+    if (field || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function shortName(val) {
+    val = val.trim();
+    // Extract text before ' — ' (em dash with spaces)
+    var dash = val.indexOf(' — ');
+    if (dash !== -1) val = val.substring(0, dash).trim();
+    // Strip trailing incomplete parenthetical like "(675m" or "(earliest"
+    val = val.replace(/\s*\([^)]*$/, '').trim();
+    // If still long, truncate
+    return val.length > 45 ? val.substring(0, 42) + '…' : val;
+  }
+
+  function splitMulti(val) {
+    if (!val || !val.trim()) return [];
+    // Only split on ', ' followed by an emoji — never on plain text commas
+    return val.split(/,\s*(?=[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{2702}-\u{27B0}])/u)
+      .map(function(p) { return p.trim(); }).filter(Boolean);
+  }
+
+  function aggregate(values) {
+    var counts = {};
+    values.forEach(function(v) {
+      // Aggregate by short name so duplicates with same prefix merge
+      var key = shortName(v);
+      if (!key) return;
+      counts[key] = (counts[key] || 0) + 1;
+    });
+    return Object.keys(counts).map(function(k) {
+      return { label: k, count: counts[k] };
+    }).sort(function(a, b) { return b.count - a.count; });
+  }
+
+  var COLORS = ['#2d5a3f', '#d4913b', '#5b93b0', '#c45a3c', '#7fa97f', '#8b6ec7', '#e07b9a', '#4a9ca6'];
+
+  function renderBarChart(items, total) {
+    var html = '';
+    items.forEach(function(item, i) {
+      var pct = Math.round((item.count / total) * 100);
+      var color = COLORS[i % COLORS.length];
+      html += '<div class="poll-bar-row">';
+      html += '<span class="poll-bar-label" title="' + item.label.replace(/"/g, '&quot;') + '">' + item.label + '</span>';
+      html += '<div class="poll-bar-track"><div class="poll-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>';
+      html += '<span class="poll-bar-value">' + item.count + ' (' + pct + '%)</span>';
+      html += '</div>';
+    });
+    return html;
+  }
+
+  var QUESTIONS = [
+    { col: 3,  title: 'Trip Confirmation', multi: false },
+    { col: 4,  title: 'Departure Time from IISER', multi: false },
+    { col: 6,  title: 'Budget Per Night (Accommodation)', multi: false },
+    { col: 7,  title: 'Most Wanted Places to Visit', multi: true },
+    { col: 8,  title: 'Saturday Evening Plans', multi: false },
+    { col: 9,  title: 'Sunday Morning Preference', multi: false },
+    { col: 10, title: 'Fitness Rating (1–5)', multi: false },
+    { col: 11, title: 'Adventure Activities Interest', multi: true },
+    { col: 12, title: 'Dietary Preference', multi: false },
+    { col: 13, title: 'Restaurant Preferences', multi: true },
+    { col: 14, title: 'Total Trip Budget', multi: false }
+  ];
+
+  fetch(CSV_URL)
+    .then(function(r) { return r.text(); })
+    .then(function(text) {
+      var parsed = parseCSV(text);
+      if (parsed.length < 2) {
+        document.getElementById('pollResults').innerHTML = '<p style="text-align:center;color:var(--slate-light);">No responses yet.</p>';
+        return;
+      }
+      var dataRows = parsed.slice(1);
+      var total = dataRows.length;
+      var confirmed = dataRows.filter(function(r) { return r[3] && r[3].indexOf('Yes') !== -1; }).length;
+
+      var html = '';
+      html += '<div class="poll-stat-row">';
+      html += '<div class="poll-stat"><div class="big">' + total + '</div><div class="small">Total Responses</div></div>';
+      html += '<div class="poll-stat"><div class="big">' + confirmed + '</div><div class="small">Confirmed</div></div>';
+      html += '<div class="poll-stat"><div class="big">' + (total - confirmed) + '</div><div class="small">Can\'t Make It</div></div>';
+      html += '</div>';
+
+      html += '<div class="poll-grid">';
+      QUESTIONS.forEach(function(q) {
+        var allValues = [];
+        dataRows.forEach(function(row) {
+          var val = row[q.col] || '';
+          if (q.multi) {
+            splitMulti(val).forEach(function(v) { allValues.push(v); });
+          } else {
+            if (val.trim()) allValues.push(val.trim());
+          }
+        });
+        var items = aggregate(allValues);
+        if (items.length === 0) return;
+        html += '<div class="poll-card">';
+        html += '<h3>' + q.title + '</h3>';
+        html += renderBarChart(items, q.multi ? dataRows.length : total);
+        html += '</div>';
+      });
+      html += '</div>';
+
+      document.getElementById('pollResults').innerHTML = html;
+    })
+    .catch(function(err) {
+      console.error('Poll fetch error:', err);
+      document.getElementById('pollResults').innerHTML = '<p style="text-align:center;color:var(--rust);">Could not load poll results. Try refreshing.</p>';
+    });
 })();
 </script>
 

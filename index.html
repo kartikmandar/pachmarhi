@@ -71,6 +71,165 @@
     font-size: 1.1rem;
   }
 
+  /* ── TRIP TRACKER ── */
+  .trip-tracker {
+    margin-top: 28px;
+    padding: 22px 28px;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    color: white;
+  }
+  .tracker-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--star);
+    margin-bottom: 6px;
+  }
+  .tracker-pulse {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: #34d399;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: pulse-dot 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(52,211,153,0); }
+  }
+  /* Countdown (pre-trip) */
+  .tracker-countdown {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .countdown-unit {
+    text-align: center;
+  }
+  .countdown-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    line-height: 1;
+    min-width: 48px;
+    display: inline-block;
+  }
+  .countdown-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-top: 4px;
+  }
+  .countdown-sep {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    opacity: 0.4;
+    padding: 0 2px;
+    align-self: flex-start;
+    line-height: 1;
+  }
+  .tracker-hint {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    opacity: 0.7;
+  }
+  /* Active state (during trip) */
+  .tracker-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+    align-items: stretch;
+  }
+  .tracker-now, .tracker-next {
+    flex: 1;
+  }
+  .tracker-now-title, .tracker-next-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+  .tracker-now-time, .tracker-next-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    opacity: 0.6;
+    margin-top: 4px;
+  }
+  .tracker-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.18);
+    align-self: stretch;
+  }
+  /* Progress bar */
+  .tracker-progress {
+    margin-top: 16px;
+  }
+  .tracker-progress-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  .tracker-progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .tracker-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber), var(--star));
+    border-radius: 3px;
+    transition: width 0.6s ease;
+  }
+  /* Post-trip */
+  .tracker-done-msg {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin-top: 4px;
+  }
+  .tracker-done-sub {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    margin-top: 6px;
+  }
+
+  /* Tracker responsive — tablet */
+  @media (max-width: 900px) {
+    .trip-tracker { padding: 18px 22px; margin-top: 22px; }
+    .countdown-value { font-size: 1.6rem; min-width: 40px; }
+    .countdown-sep { font-size: 1.3rem; }
+  }
+  /* Tracker responsive — mobile */
+  @media (max-width: 600px) {
+    .trip-tracker { padding: 16px 18px; margin-top: 18px; }
+    .tracker-row { flex-direction: column; gap: 14px; }
+    .tracker-divider { width: 100%; height: 1px; }
+    .countdown-value { font-size: 1.4rem; min-width: 34px; }
+    .countdown-sep { font-size: 1.1rem; }
+    .tracker-now-title, .tracker-next-title { font-size: 1rem; }
+  }
+  /* Tracker responsive — small mobile */
+  @media (max-width: 380px) {
+    .trip-tracker { padding: 14px 14px; margin-top: 14px; }
+    .countdown-value { font-size: 1.2rem; min-width: 28px; }
+    .countdown-sep { font-size: 1rem; }
+    .countdown-label { font-size: 0.48rem; }
+    .tracker-label { font-size: 0.6rem; }
+  }
+
   /* ── HERO ── */
   .hero {
     background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 40%, var(--moss) 100%);
@@ -1019,6 +1178,7 @@
       <div class="hero-meta-item"><span class="icon">🛣</span> ~200 km drive</div>
       <div class="hero-meta-item"><span class="icon">🌡</span> 22–35°C days · 10–15°C nights</div>
     </div>
+    <div id="tripTracker" class="trip-tracker"></div>
     <div class="quick-links">
       <a href="https://drive.google.com/drive/folders/1sBWzoBbf-BMvGkgTm23Oc2baKd7aGdEs?usp=sharing" target="_blank"><span class="link-icon">📸</span> Upload Photos</a>
       <a href="https://open.spotify.com/playlist/6F0GV8KBIeKcr0nwkh76VJ?si=WFOLl5xOSki_q5B8Ztotfg&pt=8bea50cdcf899ebef8c2d21279d07bad&pi=kL--TqMCQVGck" target="_blank"><span class="link-icon">🎵</span> Trip Playlist</a>
@@ -1342,6 +1502,198 @@
   <p>Pachmarhi Trip Itinerary — IISER Bhopal Squad — March 13–15, 2026</p>
   <p style="margin-top: 8px;"><strong>Remember:</strong> Bison Lodge at 8 AM sharp. Insist on Duchess Falls. Look up at the stars.</p>
 </div>
+
+<!-- ═══════ TRIP TRACKER SCRIPT ═══════ -->
+<script>
+(function() {
+  var TRIP_START = '2026-03-13T12:30:00+05:30';
+  var TRIP_END   = '2026-03-15T22:00:00+05:30';
+
+  var TRIP_EVENTS = [
+    { time: '2026-03-13T12:30:00+05:30', end: '2026-03-13T13:00:00+05:30', title: 'Assemble at IISER Gate', day: 1 },
+    { time: '2026-03-13T13:00:00+05:30', end: '2026-03-13T18:00:00+05:30', title: 'Drive to Pachmarhi', day: 1 },
+    { time: '2026-03-13T18:00:00+05:30', end: '2026-03-13T19:00:00+05:30', title: 'Check in at Chunmun Cottage', day: 1 },
+    { time: '2026-03-13T19:00:00+05:30', end: '2026-03-13T20:30:00+05:30', title: 'Sunset at Priyadarshini Point', day: 1 },
+    { time: '2026-03-13T20:30:00+05:30', end: '2026-03-13T21:30:00+05:30', title: 'Dinner in town', day: 1 },
+    { time: '2026-03-13T21:30:00+05:30', end: '2026-03-13T23:00:00+05:30', title: 'Stargazing at Astro Point', day: 1 },
+    { time: '2026-03-14T07:00:00+05:30', end: '2026-03-14T07:30:00+05:30', title: 'Wake up & breakfast', day: 2 },
+    { time: '2026-03-14T08:00:00+05:30', end: '2026-03-14T09:00:00+05:30', title: 'Bison Lodge permits', day: 2 },
+    { time: '2026-03-14T09:00:00+05:30', end: '2026-03-14T12:30:00+05:30', title: 'Duchess Falls hike', day: 2 },
+    { time: '2026-03-14T12:30:00+05:30', end: '2026-03-14T13:30:00+05:30', title: 'Lunch break', day: 2 },
+    { time: '2026-03-14T13:30:00+05:30', end: '2026-03-14T15:30:00+05:30', title: 'Bee Falls & Jata Shankar Cave', day: 2 },
+    { time: '2026-03-14T15:30:00+05:30', end: '2026-03-14T17:00:00+05:30', title: 'Pandav Caves & Museum', day: 2 },
+    { time: '2026-03-14T17:00:00+05:30', end: '2026-03-14T18:30:00+05:30', title: 'Dhoopgarh sunset drive', day: 2 },
+    { time: '2026-03-14T18:30:00+05:30', end: '2026-03-14T19:00:00+05:30', title: 'Golden hour at Dhoopgarh', day: 2 },
+    { time: '2026-03-14T19:30:00+05:30', end: '2026-03-14T20:30:00+05:30', title: 'Dinner', day: 2 },
+    { time: '2026-03-14T21:00:00+05:30', end: '2026-03-14T22:30:00+05:30', title: 'Night walk & stargazing', day: 2 },
+    { time: '2026-03-15T06:00:00+05:30', end: '2026-03-15T07:00:00+05:30', title: 'Sunrise trek (optional)', day: 3 },
+    { time: '2026-03-15T07:00:00+05:30', end: '2026-03-15T08:00:00+05:30', title: 'Breakfast & pack up', day: 3 },
+    { time: '2026-03-15T08:00:00+05:30', end: '2026-03-15T08:30:00+05:30', title: 'Checkout from cottage', day: 3 },
+    { time: '2026-03-15T08:30:00+05:30', end: '2026-03-15T12:00:00+05:30', title: 'Satpura snorkeling trek (TGA)', day: 3 },
+    { time: '2026-03-15T12:00:00+05:30', end: '2026-03-15T13:00:00+05:30', title: 'Lunch at Reechgarh', day: 3 },
+    { time: '2026-03-15T13:00:00+05:30', end: '2026-03-15T14:00:00+05:30', title: 'Reechgarh cave exploration', day: 3 },
+    { time: '2026-03-15T14:00:00+05:30', end: '2026-03-15T18:00:00+05:30', title: 'Drive back to Bhopal', day: 3 },
+    { time: '2026-03-15T18:00:00+05:30', end: '2026-03-15T22:00:00+05:30', title: 'Arrive at IISER Bhopal', day: 3 }
+  ];
+
+  var el = document.getElementById('tripTracker');
+  if (!el) return;
+
+  function toDate(s) { return new Date(s); }
+  var tripStart = toDate(TRIP_START);
+  var tripEnd   = toDate(TRIP_END);
+
+  function getState(now) {
+    if (now < tripStart) return 'pre';
+    if (now >= tripEnd) return 'post';
+    return 'active';
+  }
+
+  function findCurrentAndNext(now) {
+    var current = null, next = null;
+    for (var i = 0; i < TRIP_EVENTS.length; i++) {
+      var ev = TRIP_EVENTS[i];
+      var start = toDate(ev.time);
+      var end = toDate(ev.end);
+      if (now >= start && now < end) {
+        current = ev;
+        next = TRIP_EVENTS[i + 1] || null;
+        return { current: current, next: next };
+      }
+      if (now < start) {
+        next = ev;
+        return { current: null, next: next };
+      }
+    }
+    return { current: TRIP_EVENTS[TRIP_EVENTS.length - 1], next: null };
+  }
+
+  function fmtTime(iso) {
+    var d = toDate(iso);
+    return d.toLocaleString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' });
+  }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function countEventsCompleted(now) {
+    var count = 0;
+    for (var i = 0; i < TRIP_EVENTS.length; i++) {
+      if (now >= toDate(TRIP_EVENTS[i].end)) count++;
+    }
+    return count;
+  }
+
+  function currentDay(now) {
+    for (var i = TRIP_EVENTS.length - 1; i >= 0; i--) {
+      if (now >= toDate(TRIP_EVENTS[i].time)) return TRIP_EVENTS[i].day;
+    }
+    return 1;
+  }
+
+  function renderPre(now) {
+    var diff = tripStart - now;
+    var days = Math.floor(diff / 86400000);
+    var hrs  = Math.floor((diff % 86400000) / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    var secs = Math.floor((diff % 60000) / 1000);
+
+    var firstEvent = TRIP_EVENTS[0];
+
+    el.innerHTML =
+      '<div class="tracker-label">TRIP STARTS IN</div>' +
+      '<div class="tracker-countdown">' +
+        '<div class="countdown-unit"><span class="countdown-value">' + pad(days) + '</span><span class="countdown-label">Days</span></div>' +
+        '<span class="countdown-sep">:</span>' +
+        '<div class="countdown-unit"><span class="countdown-value">' + pad(hrs) + '</span><span class="countdown-label">Hours</span></div>' +
+        '<span class="countdown-sep">:</span>' +
+        '<div class="countdown-unit"><span class="countdown-value">' + pad(mins) + '</span><span class="countdown-label">Mins</span></div>' +
+        '<span class="countdown-sep">:</span>' +
+        '<div class="countdown-unit"><span class="countdown-value">' + pad(secs) + '</span><span class="countdown-label">Secs</span></div>' +
+      '</div>' +
+      '<div class="tracker-hint">First up: ' + firstEvent.title + ' at ' + fmtTime(firstEvent.time) + '</div>';
+  }
+
+  function renderActive(now) {
+    var info = findCurrentAndNext(now);
+    var done = countEventsCompleted(now);
+    var day  = currentDay(now);
+    var pct  = Math.round((done / TRIP_EVENTS.length) * 100);
+
+    var nowBlock = '';
+    if (info.current) {
+      nowBlock =
+        '<div class="tracker-now">' +
+          '<div class="tracker-label"><span class="tracker-pulse"></span>HAPPENING NOW</div>' +
+          '<div class="tracker-now-title">' + info.current.title + '</div>' +
+          '<div class="tracker-now-time">' + fmtTime(info.current.time) + ' – ' + fmtTime(info.current.end) + '</div>' +
+        '</div>';
+    } else {
+      nowBlock =
+        '<div class="tracker-now">' +
+          '<div class="tracker-label"><span class="tracker-pulse"></span>FREE TIME</div>' +
+          '<div class="tracker-now-title">Chill & explore</div>' +
+          '<div class="tracker-now-time">Between activities</div>' +
+        '</div>';
+    }
+
+    var nextBlock = '';
+    if (info.next) {
+      nextBlock =
+        '<div class="tracker-next">' +
+          '<div class="tracker-label">UP NEXT</div>' +
+          '<div class="tracker-next-title">' + info.next.title + '</div>' +
+          '<div class="tracker-next-time">' + fmtTime(info.next.time) + '</div>' +
+        '</div>';
+    } else {
+      nextBlock =
+        '<div class="tracker-next">' +
+          '<div class="tracker-label">UP NEXT</div>' +
+          '<div class="tracker-next-title">Trip wrapping up!</div>' +
+          '<div class="tracker-next-time">Heading home</div>' +
+        '</div>';
+    }
+
+    el.innerHTML =
+      '<div class="tracker-row">' +
+        nowBlock +
+        '<div class="tracker-divider"></div>' +
+        nextBlock +
+      '</div>' +
+      '<div class="tracker-progress">' +
+        '<div class="tracker-progress-label">Day ' + day + ' of 3 — ' + done + ' of ' + TRIP_EVENTS.length + ' events done</div>' +
+        '<div class="tracker-progress-bar"><div class="tracker-progress-fill" style="width:' + pct + '%"></div></div>' +
+      '</div>';
+  }
+
+  function renderPost() {
+    el.innerHTML =
+      '<div class="tracker-label">TRIP COMPLETED</div>' +
+      '<div class="tracker-done-msg">What a weekend that was.</div>' +
+      '<div class="tracker-done-sub">Duchess Falls. Dhoopgarh sunset. Stars over Satpura. Until the next one.</div>';
+  }
+
+  function tick() {
+    var now = new Date();
+    var state = getState(now);
+    if (state === 'pre') renderPre(now);
+    else if (state === 'active') renderActive(now);
+    else renderPost();
+  }
+
+  tick();
+
+  var state = getState(new Date());
+  var timerId = setInterval(function() {
+    var newState = getState(new Date());
+    tick();
+    if (newState !== state) {
+      clearInterval(timerId);
+      state = newState;
+      timerId = setInterval(tick, newState === 'pre' ? 1000 : 60000);
+    }
+  }, state === 'pre' ? 1000 : 60000);
+})();
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
